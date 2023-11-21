@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #fff; /* Set the background color to white */
+  color: #0c0c0c; /* Set the text color to black */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  min-height: 100vh; /* Ensure the content takes at least the full viewport height */
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #f5efef; /* Set the background color to black for dark mode */
+    color: #0e0202; /* Set the text color to white for dark mode */
+  }
+}
