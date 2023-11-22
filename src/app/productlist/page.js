@@ -1,18 +1,20 @@
 "use client";
 import React, { useEffect, useState } from "react";
-async function productList() {
-  let data = await fetch("https://dummyjson.com/products");
-  data = await data.json();
-  console.log(data);
-  return data.products;
+
+async function fetchEmployeeList() {
+  const response = await fetch(
+    "	https://dummy.restapiexample.com/api/v1/employees"
+  );
+  const data = await response.json();
+  return data.data; // Extracting the "data" property from the response
 }
 
-const ProductList = () => {
-  const [products, setProducts] = useState([]);
+const EmployeeList = () => {
+  const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
-    productList().then((data) => {
-      setProducts(data);
+    fetchEmployeeList().then((data) => {
+      setEmployees(data);
     });
   }, []);
 
@@ -26,27 +28,25 @@ const ProductList = () => {
           borderRadius: "25px",
         }}
       >
-        In the Product page
+        In the Employee page
       </h3>
 
       <table>
         <thead>
           <tr>
             <th>ID</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Rating</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Age</th>
           </tr>
         </thead>
         <tbody>
-          {products.map((product) => (
-            <tr key={product.id}>
-              <td>{product.id}</td>
-              <td style={{ textAlign: "center" }}>{product.title}</td>
-              <td>{product.description}</td>
-              <td>${product.price}</td>
-              <td>{product.rating}</td>
+          {employees.map((employee) => (
+            <tr key={employee.id}>
+              <td>{employee.id}</td>
+              <td style={{ textAlign: "center" }}>{employee.employee_name}</td>
+              <td>${employee.employee_salary}</td>
+              <td>{employee.employee_age}</td>
             </tr>
           ))}
         </tbody>
@@ -55,4 +55,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default EmployeeList;
