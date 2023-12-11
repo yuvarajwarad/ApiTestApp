@@ -8,7 +8,7 @@ export default function Home() {
         style={{
           margin: "6px",
           padding: "21px",
-          backgroundColor: "lightgreen", // Use backgroundColor with camelCase
+          backgroundColor: "lightgreen",
           borderRadius: "25px",
         }}
       >
